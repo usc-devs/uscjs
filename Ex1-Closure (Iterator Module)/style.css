@@ -12,3 +12,29 @@ body {
   background: #ea766a;
   user-select: none;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.title {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+.iterator {
+  min-width: 4.3em;
+  font-size: 3em;
+  position: relative;
+  padding: 0.17em 1.5em;
+  background: white;
+  color: #ea766a;
+  font-weight: bold;
+  border-radius: 40px;
+  text-align: center;
+  transition: 0.2s;
+}
