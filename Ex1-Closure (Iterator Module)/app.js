@@ -19,8 +19,21 @@ function createIterator(values) {
     return currentValue;
   }
 
+  function iterateBackward() {
+    if (index === 0) {
+      index = values.length - 1;
+    } else {
+      index--;
+    }
+
+    let currentValue = values[index];
+
+    return currentValue;
+  }
+
   return {
-    iterateForward: iterate
+    iterateForward: iterate,
+    iterateBackward: iterateBackward
   };
 }
 
