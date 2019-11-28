@@ -37,5 +37,20 @@ function createIterator(values) {
   };
 }
 
-let it1 = createIterator([1, 2, 3, 4]);
-console.log(it1.iterateForward())
+let it1 = createIterator(["😂", "😍", "😏", "🙄", "😆", "😄"]);
+
+// Not JS! (DOM)
+let iteratorAfterEl = document.querySelector(".iterator-after");
+let iteratorBeforeEl = document.querySelector(".iterator-before");
+let iteratorValueEl = document.querySelector(".iterator-value");
+iteratorValueEl.innerText = it1.iterateForward();
+
+// Note that we could have made a different module solely to
+// create & handle iterator elements inside HTML DOM.
+// but for simplicity sake, we just handled the DOM part manually
+iteratorAfterEl.addEventListener("click", function() {
+  iteratorValueEl.innerText = it1.iterateForward();
+});
+iteratorBeforeEl.addEventListener("click", function() {
+  iteratorValueEl.innerText = it1.iterateBackward();
+});
