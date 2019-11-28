@@ -38,3 +38,21 @@ body {
   text-align: center;
   transition: 0.2s;
 }
+
+.iterator-indicator {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0.5;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.2s;
+}
+.iterator-indicator:hover {
+  opacity: 1;
+}
+.iterator-after {
+  right: 10%;
+}
+.iterator-before {
+  left: 10%;
+}
