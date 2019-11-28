@@ -38,7 +38,9 @@ body {
   text-align: center;
   transition: 0.2s;
 }
-
+.iterator:active {
+  transform: translateY(6px);
+}
 .iterator-indicator {
   cursor: pointer;
   position: absolute;
