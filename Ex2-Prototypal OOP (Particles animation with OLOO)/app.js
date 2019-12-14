@@ -81,9 +81,6 @@ let App = (function () {
     requestAnimationFrame(animate);
   }
 
-  init();
-  requestAnimationFrame(animate);
-
   function connectParticles() {
     let opacityLevel;
     for (let i = 0; i < particlesArray.length; i++) {
@@ -107,4 +104,14 @@ let App = (function () {
   function generateRandomNumber(min, max) {
     return (Math.random() * (max - min + 1)) + min;
   }
+
+  return {
+    animate: function () {
+      requestAnimationFrame(animate);
+    },
+    init: init
+  }
 })();
+
+App.init();
+App.animate();
