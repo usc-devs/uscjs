@@ -77,11 +77,32 @@ let App = (function () {
       particle.move();
     });
 
+    connectParticles();
     requestAnimationFrame(animate);
   }
 
   init();
   requestAnimationFrame(animate);
+
+  function connectParticles() {
+    let opacityLevel;
+    for (let i = 0; i < particlesArray.length; i++) {
+      for (let j = i; j < particlesArray.length; j++) {
+        let distance = (particlesArray[i].x - particlesArray[j].x) ** 2
+          + (particlesArray[i].y - particlesArray[j].y) ** 2;
+
+        if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+          opacityLevel = 1 - (distance / 20000);
+          ctx.strokeStyle = `rgba(${particlesRGB.join(',')}, ${opacityLevel})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+          ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
 
   function generateRandomNumber(min, max) {
     return (Math.random() * (max - min + 1)) + min;
