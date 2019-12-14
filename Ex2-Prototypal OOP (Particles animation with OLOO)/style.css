@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+
+.particles {
+  position: absolute;
+  background: rgb(19, 18, 18);
+  font-family: "Fira Sans";
+  user-select: none;
+}
