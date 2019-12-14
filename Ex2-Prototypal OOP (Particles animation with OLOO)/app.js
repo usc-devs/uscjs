@@ -69,7 +69,19 @@ let App = (function () {
     }
   }
 
+  // clear the canvas and animate all the particles
+  function animate() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    particlesArray.forEach(particle => {
+      particle.move();
+    });
+
+    requestAnimationFrame(animate);
+  }
+
   init();
+  requestAnimationFrame(animate);
 
   function generateRandomNumber(min, max) {
     return (Math.random() * (max - min + 1)) + min;
