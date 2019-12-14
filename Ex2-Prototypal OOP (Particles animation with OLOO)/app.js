@@ -5,6 +5,7 @@ let App = (function () {
   let particlesRGB = [115, 70, 40];
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  let particlesArray = [];
 
   // master object. responsible for drawing to the canvas
   let canvasDrawer = {
@@ -48,4 +49,29 @@ let App = (function () {
       this.drawCircle();
     }
   };
+
+  // create all particles
+  function init() {
+    let size, x, y, directionX, directionY, color, newParticle;
+    particlesArray = [];
+
+    for (let i = 0; i < numberOfParticles; i++) {
+      size = generateRandomNumber(1, 7);
+      x = generateRandomNumber(size * 2, window.innerWidth);
+      y = generateRandomNumber(size * 2, window.innerHeight);
+      directionX = generateRandomNumber(-2.5, 4.5);
+      directionY = generateRandomNumber(-2.5, 4.5);
+      color = `rgb(${particlesRGB.join(',')})`;
+
+      newParticle = Object.create(particle);
+      newParticle.init(x, y, directionX, directionY, size, color);
+      particlesArray.push(newParticle);
+    }
+  }
+
+  init();
+
+  function generateRandomNumber(min, max) {
+    return (Math.random() * (max - min + 1)) + min;
+  }
 })();
