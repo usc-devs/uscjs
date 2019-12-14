@@ -105,6 +105,12 @@ let App = (function () {
     return (Math.random() * (max - min + 1)) + min;
   }
 
+  addEventListener('resize', function() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
+  });
+
   return {
     animate: function () {
       requestAnimationFrame(animate);
